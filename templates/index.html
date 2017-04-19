@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Fashion Club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css" media="all" />
+	<link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" media="all" />
+	<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css" media="all" />
+	<link rel="stylesheet" href="{% static "css/bootstrap-social.css" %}" type="text/css" media="all" />
+
+	<!--// css -->
+	<!-- font -->
+	<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+	<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+	<!-- //font -->
+	<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+	<script src="{% static "js/bootstrap.js" %}"></script>
+
+<style>
+.hef{
+	text-align: center;
+	margin: 0 0 40px;
+}
+.vij{
+    opacity:1;
+    background-color: #FFFFFF;
+}
+
+.btn-success {
+  color: #fff;
+  background-color: #00e58b;
+  border-color: #4cae4c;
+}
+.btn-success:focus,
+.btn-success.focus {
+  color: #fff;
+  background-color: #000000;
+  border-color: #255625;
+}
+.btn-success:hover {
+  color: #fff;
+  background-color: #000000;   
+  border-color: #398439;
+}
+
+/*body  {
+        background-image: url("http://www.powerscourthotel.com/cmsGallery/imagerow/3470/resized/1296x682/rc_powerscourt_powerscourt_house_table_setting.jpg");
+
+        background-size: cover;
+    }
+*/
+</style>
+</head>
+
+	<div class="login">
+	
+		<div class="main-agileits vij">
+				<div class="form-w3agile">
+					<h3 style="color: #00e58b;">Login</h3>
+					<!-- <h3>Login</h3> -->
+					<h4>{{state}}</h4>
+					<form action="/signin/" method="POST">{% csrf_token %}
+						<div class="key">
+							<i class="fa fa-envelope" aria-hidden="true"></i>
+							<input  type="text" name="email" id="email" required="" placeholder="Email">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<i class="fa fa-lock" aria-hidden="true"></i>
+							<input  type="password" name="password" id="password" required="" placeholder="Password">
+							<div class="clearfix"></div>
+						</div>
+						<input type="submit" value="Login">
+						<a href="/register/" class="btn btn-success" style="width: 117px; height: 40px; text-align: center;line-height:25px; border-radius: 0px;border-color: #00e58b; float: right;">Register </a>
+					</form>
+				</div>
+					
+				<div class="forg">
+				<div class="clearfix"></div>
+				</div>
+			</div>
+		</div>
+		<br><br>
+	<script src="{% static "js/minicart.js" %}"></script>
+	<script>
+        w3ls1.render();
+
+        w3ls1.cart.on('w3sb1_checkout', function (evt) {
+        	var items, len, i;
+
+        	if (this.subtotal() > 0) {
+        		items = this.items();
+
+        		for (i = 0, len = items.length; i < len; i++) {
+        			items[i].set('shipping', 0);
+        			items[i].set('shipping2', 0);
+        		}
+        	}
+        });
+    </script> 
+    <script type="text/javascript">
+    	$("#submit").click(function(){
+    		var email = $("#email").val();
+	    	var password = $("#password").val();
+	    	$.ajax({
+	    		type:"POST",
+	    		url:'/signin/',
+	    		data: {
+	    			'email': email,
+	    			'password': password,
+	    		}
+	    	});	
+	    });
+    	
+    </script> 
+	<!-- //cart-js -->  
+</body>
+</html>

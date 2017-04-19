@@ -1,0 +1,130 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+{% load staticfiles %}
+<head>
+<title>Register</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Fashion Club Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- css -->
+<link href="{% static "css/bootstrap-social.css" %}" rel="stylesheet" type="text/css" media="all" />
+<link href="{% static "css/bootstrap.css" %}" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static "css/style.css" %}" type="text/css" media="all" />
+<link rel="stylesheet" href="{% static "css/font-awesome.min.css" %}" type="text/css" media="all" />
+<!--// css -->
+<!-- font -->
+<link href="//fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+<link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
+<!-- //font -->
+<script src="{% static "js/jquery-1.11.1.min.js" %}"></script>
+<script src="{% static "js/bootstrap.js" %}"></script>
+<script type="text/javascript">
+    	$("#submit").click(function(){
+    		var first_name = $("#first_name").val();
+	    	var last_name = $("#last_name").val();	    	
+    		var email = $("#email").val();
+	    	var username = $("#username").val();
+	    	var password = $("#password").val();
+	    	var confirm_password = $("#confirm_password").val();
+	    	$.ajax({
+	    		type:"POST",
+	    		url:'/login/',
+	    		data: {
+	    			'first_name': first_name,
+	    			'last_name': last_name,
+	    			'username': username,
+	    			'email': email,
+	    			'password': password,
+	    			'confirm_password': confirm_password,
+	    		}
+	    	});	
+	    });
+    	
+</script> 
+
+
+<style>
+.hef{
+	text-align: center;
+	margin: 0 0 40px;
+}
+.vij{
+    opacity:1;
+    background-color: #FFFFFF;
+}
+</style>
+
+</head>
+<body >
+
+	<div class="login">
+	
+		<div class="main-agileits vij" style="">
+				<div class="form-w3agile">
+					<h3>Register</h3>
+					<h4>{{state}}</h4>
+					<form action="/signup/" method="POST">{% csrf_token %}
+						<div class="key">
+							<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+							<input  type="text"  id="first_name" name="first_name" required=""  placeholder="Firstname">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+							<input  type="text"  id="last_name" name="last_name" required=""  placeholder="Lastname">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+							<input  type="text"  id="username" name="username" required=""  placeholder="Username">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<!-- <i class="fa fa-envelope" aria-hidden="true"></i> -->
+							<input  type="text"  name="email" id="email" required=""  placeholder="Email">
+							<div class="clearfix"></div>
+						</div>
+
+						<div class="key">
+							<!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+							<input  type="password"  name="password" id="password" required="" placeholder="Password">
+							<div class="clearfix"></div>
+						</div>
+						<div class="key">
+							<!-- <i class="fa fa-lock" aria-hidden="true"></i> -->
+							<input type="password" name="confirm_password" id="confirm_password" required="" placeholder="Confirm Password">
+							<div class="clearfix"></div>
+						</div>
+						<input type="submit" id="submit" name="submit" value="Register">
+					</form>
+				</div>
+			</div>
+		</div>
+		<br><br>
+	<script src="{% static "js/minicart.js" %}"></script>
+	<script>
+        w3ls1.render();
+
+        w3ls1.cart.on('w3sb1_checkout', function (evt) {
+        	var items, len, i;
+
+        	if (this.subtotal() > 0) {
+        		items = this.items();
+
+        		for (i = 0, len = items.length; i < len; i++) {
+        			items[i].set('shipping', 0);
+        			items[i].set('shipping2', 0);
+        		}
+        	}
+        });
+    </script>   
+</body>
+</html>
